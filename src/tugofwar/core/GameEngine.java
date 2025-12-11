@@ -1,12 +1,15 @@
-package src.tugofwar.core;
+package tugofwar.core;
 
-import src.tugofwar.user.Admin;
-import src.tugofwar.user.Student;
-import src.tugofwar.question.QuestionBank;
-import src.tugofwar.result.LeaderboardService;
-import src.tugofwar.result.ResultLogger;
-import src.tugofwar.ui.CLIView;
-import src.tugofwar.ui.InputHandler;
+import tugofwar.user.Admin;
+import tugofwar.user.Student;
+
+import java.io.File;
+
+import tugofwar.question.QuestionBank;
+import tugofwar.result.LeaderboardService;
+import tugofwar.result.ResultLogger;
+import tugofwar.ui.CLIView;
+import tugofwar.ui.InputHandler;
 
 public class GameEngine {
 
@@ -19,7 +22,9 @@ public class GameEngine {
     public GameEngine() {
         this.view = new CLIView();
         this.input = new InputHandler();
-        this.questionBank = new QuestionBank("questions.csv");
+        this.questionBank = new QuestionBank(new File("questions.csv").getAbsolutePath());
+        System.out.println("ABSOLUTE PATH CSV = " + new File("questions.csv").getAbsolutePath());
+        System.out.println("WORKING DIR        = " + System.getProperty("user.dir"));
         this.resultLogger = new ResultLogger("results.txt");
         this.leaderboardService = new LeaderboardService(resultLogger);
     }

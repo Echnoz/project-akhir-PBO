@@ -1,4 +1,4 @@
-package src.tugofwar.question;
+package tugofwar.question;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,8 +11,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import src.tugofwar.ui.CLIView;
-import src.tugofwar.ui.InputHandler;
+import tugofwar.ui.CLIView;
+import tugofwar.ui.InputHandler;
 
 public class QuestionBank {
 

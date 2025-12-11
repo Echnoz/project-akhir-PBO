@@ -1,8 +1,8 @@
-package src.tugofwar.result;
+package tugofwar.result;
 
 import java.time.LocalDateTime;
 
-import src.tugofwar.question.QuizMode;
+import tugofwar.question.QuizMode;
 
 public class GameResult {
 

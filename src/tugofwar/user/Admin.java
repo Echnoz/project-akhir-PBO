@@ -1,4 +1,4 @@
-package src.tugofwar.user;
+package tugofwar.user;
 
 public class Admin extends User {
 

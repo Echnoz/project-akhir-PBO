@@ -1,10 +1,10 @@
-package src.tugofwar.ui;
+package tugofwar.ui;
 
 import java.util.List;
 
-import src.tugofwar.question.Question;
-import src.tugofwar.question.QuizMode;
-import src.tugofwar.result.GameResult;
+import tugofwar.question.Question;
+import tugofwar.question.QuizMode;
+import tugofwar.result.GameResult;
 
 public class CLIView {
 

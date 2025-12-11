@@ -1,4 +1,4 @@
-package src.tugofwar.ui;
+package tugofwar.ui;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

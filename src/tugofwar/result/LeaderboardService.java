@@ -1,12 +1,12 @@
-package src.tugofwar.result;
+package tugofwar.result;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import src.tugofwar.question.QuizMode;
-import src.tugofwar.ui.CLIView;
-import src.tugofwar.ui.InputHandler;
+import tugofwar.question.QuizMode;
+import tugofwar.ui.CLIView;
+import tugofwar.ui.InputHandler;
 
 public class LeaderboardService {
 

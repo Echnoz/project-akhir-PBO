@@ -1,4 +1,4 @@
-package src.tugofwar.mechanic;
+package tugofwar.mechanic;
 
 public class TugOfWarField implements ITugOfWarMechanic {
 
@@ -7,14 +7,14 @@ public class TugOfWarField implements ITugOfWarMechanic {
     private final int maxPosition = 10;
 
     @Override
-    public void onCorrectAnswer() {
+    public void onWrongAnswer() {
         if (position < maxPosition) {
             position++;
         }
     }
 
     @Override
-    public void onWrongAnswer() {
+    public void onCorrectAnswer() {
         if (position > minPosition) {
             position--;
         }

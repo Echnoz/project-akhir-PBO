@@ -1,4 +1,4 @@
-package src.tugofwar.question;
+package tugofwar.question;
 
 public abstract class Question {
 

@@ -1,4 +1,4 @@
-package src.tugofwar.result;
+package tugofwar.result;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

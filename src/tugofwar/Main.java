@@ -1,6 +1,6 @@
-package src.tugofwar;
+package tugofwar;
 
-import src.tugofwar.core.GameEngine;
+import tugofwar.core.GameEngine;
 
 public class Main {
     public static void main(String[] args) {

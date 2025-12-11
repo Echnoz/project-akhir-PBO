@@ -1,18 +1,18 @@
-package src.tugofwar.core;
+package tugofwar.core;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import src.tugofwar.mechanic.ITugOfWarMechanic;
-import src.tugofwar.mechanic.TugOfWarField;
-import src.tugofwar.question.Question;
-import src.tugofwar.question.QuestionBank;
-import src.tugofwar.question.QuizMode;
-import src.tugofwar.result.GameResult;
-import src.tugofwar.result.ResultLogger;
-import src.tugofwar.ui.CLIView;
-import src.tugofwar.ui.InputHandler;
-import src.tugofwar.user.Student;
+import tugofwar.mechanic.ITugOfWarMechanic;
+import tugofwar.mechanic.TugOfWarField;
+import tugofwar.question.Question;
+import tugofwar.question.QuestionBank;
+import tugofwar.question.QuizMode;
+import tugofwar.result.GameResult;
+import tugofwar.result.ResultLogger;
+import tugofwar.ui.CLIView;
+import tugofwar.ui.InputHandler;
+import tugofwar.user.Student;
 
 public class GameSession {
 

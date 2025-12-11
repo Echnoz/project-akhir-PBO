@@ -1,4 +1,4 @@
-package src.tugofwar.mechanic;
+package tugofwar.mechanic;
 
 public interface ITugOfWarMechanic {
 
