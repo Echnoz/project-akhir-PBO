@@ -76,17 +76,21 @@ public class GameSession {
 
         int score = correctCount * 10;
         String status;
-        if (tugOfWar.getPosition() > 0) {
-            status = "WIN";
-        } else if (tugOfWar.getPosition() < 0) {
-            status = "LOSE";
+        int pos = tugOfWar.getPosition();
+
+        if (pos < 0) {
+            status = "WIN";   // Tali condong ke PLAYER
+        } else if (pos > 0) {
+            status = "LOSE";  // Tali condong ke AI
         } else {
-            status = "DRAW";
+            status = "DRAW";  // Pas di tengah
         }
 
         GameResult result = new GameResult(
                 student.getUsername(),
                 mode,
+                correctCount, 
+                wrongCount,
                 score,
                 status,
                 LocalDateTime.now()

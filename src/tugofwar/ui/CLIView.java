@@ -1,12 +1,17 @@
 package tugofwar.ui;
 
 import java.util.List;
+import java.time.format.DateTimeFormatter;
 
 import tugofwar.question.Question;
 import tugofwar.question.QuizMode;
 import tugofwar.result.GameResult;
 
 public class CLIView {
+
+    // Tambahkan formatter global
+    private static final DateTimeFormatter formatter =
+            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public void showWelcome() {
         System.out.println("====================================");
@@ -53,12 +58,15 @@ public class CLIView {
 
     public void showGameResult(GameResult result) {
         System.out.println("\n===== HASIL PERMAINAN =====");
-        System.out.println("Nama  : " + result.getUsername());
-        System.out.println("Mode  : " + result.getMode());
-        System.out.println("Skor  : " + result.getScore());
-        System.out.println("Hasil : " + result.getStatus());
-        System.out.println("Waktu : " + result.getPlayedAt());
+        System.out.println("Nama: " + result.getUsername());
+        System.out.println("Mode: " + result.getMode());
+        System.out.println("Benar: " + result.getCorrectCount());
+        System.out.println("Salah: " + result.getWrongCount());
+        System.out.println("Skor: " + result.getScore());
+        System.out.println("Hasil: " + result.getStatus());
+        System.out.println("Waktu: " + result.getPlayedAt().format(formatter));
     }
+
 
     public void showLeaderboard(QuizMode mode, List<GameResult> results) {
         System.out.println("\n===== LEADERBOARD - " + mode + " =====");
@@ -66,11 +74,12 @@ public class CLIView {
             System.out.println("Belum ada data.");
             return;
         }
-        System.out.println("Rank | Nama       | Skor | Hasil | Waktu");
+        System.out.println("Rank | Nama       | Benar | Salah | Skor | Hasil | Waktu");
         int rank = 1;
         for (GameResult r : results) {
-            System.out.printf("%4d | %-10s | %4d | %-5s | %s%n",
-                    rank++, r.getUsername(), r.getScore(), r.getStatus(), r.getPlayedAt());
+            System.out.printf("%4d | %-10s | %5d | %5d | %4d | %-5s | %s%n",
+                    rank++, r.getUsername(), r.getCorrectCount(), r.getWrongCount(), r.getScore(), r.getStatus(),
+                    r.getPlayedAt().format(formatter));
         }
     }
 
@@ -80,10 +89,11 @@ public class CLIView {
             System.out.println("Belum ada riwayat untuk pengguna ini.");
             return;
         }
-        System.out.println("Mode   | Skor | Hasil | Waktu");
+        System.out.println("Mode    | Benar | Salah | Skor | Hasil | Waktu");
         for (GameResult r : results) {
-            System.out.printf("%-6s | %4d | %-5s | %s%n",
-                    r.getMode(), r.getScore(), r.getStatus(), r.getPlayedAt());
+            System.out.printf("%-6s | %5d | %5d | %4d | %-5s | %s%n",
+                    r.getMode(), r.getCorrectCount(), r.getWrongCount(), r.getScore(), r.getStatus(),
+                    r.getPlayedAt().format(formatter));
         }
     }
 }

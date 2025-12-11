@@ -23,8 +23,6 @@ public class GameEngine {
         this.view = new CLIView();
         this.input = new InputHandler();
         this.questionBank = new QuestionBank(new File("questions.csv").getAbsolutePath());
-        System.out.println("ABSOLUTE PATH CSV = " + new File("questions.csv").getAbsolutePath());
-        System.out.println("WORKING DIR        = " + System.getProperty("user.dir"));
         this.resultLogger = new ResultLogger("results.txt");
         this.leaderboardService = new LeaderboardService(resultLogger);
     }

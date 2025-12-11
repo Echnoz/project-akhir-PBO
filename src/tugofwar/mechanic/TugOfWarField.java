@@ -6,19 +6,22 @@ public class TugOfWarField implements ITugOfWarMechanic {
     private final int minPosition = -10;
     private final int maxPosition = 10;
 
-    @Override
-    public void onWrongAnswer() {
-        if (position < maxPosition) {
-            position++;
-        }
+   @Override
+public void onCorrectAnswer() {
+    // Benar → mendekat ke PLAYER (kiri)
+    if (position > minPosition) {
+        position--;
     }
+}
 
-    @Override
-    public void onCorrectAnswer() {
-        if (position > minPosition) {
-            position--;
-        }
+@Override
+public void onWrongAnswer() {
+    // Salah → mendekat ke AI (kanan)
+    if (position < maxPosition) {
+        position++;
     }
+}
+
 
     @Override
     public int getPosition() {
@@ -36,6 +39,6 @@ public class TugOfWarField implements ITugOfWarMechanic {
         int index = position - minPosition; // geser supaya -10 -> 0, 0 -> 10, +10 -> 20
         field[index] = '0';
 
-        return "PLAYER [" + new String(field) + "] AI";
+        return "SISWA  [" + new String(field) + "] AI";
     }
 }
