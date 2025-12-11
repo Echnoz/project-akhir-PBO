@@ -1,0 +1,98 @@
+package src.tugofwar.core;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import src.tugofwar.mechanic.ITugOfWarMechanic;
+import src.tugofwar.mechanic.TugOfWarField;
+import src.tugofwar.question.Question;
+import src.tugofwar.question.QuestionBank;
+import src.tugofwar.question.QuizMode;
+import src.tugofwar.result.GameResult;
+import src.tugofwar.result.ResultLogger;
+import src.tugofwar.ui.CLIView;
+import src.tugofwar.ui.InputHandler;
+import src.tugofwar.user.Student;
+
+public class GameSession {
+
+    private final Student student;
+    private final QuestionBank questionBank;
+    private final ResultLogger resultLogger;
+    private final CLIView view;
+    private final InputHandler input;
+
+    private final ITugOfWarMechanic tugOfWar;
+    private int correctCount;
+    private int wrongCount;
+    private QuizMode mode;
+
+    public GameSession(Student student,
+                       QuestionBank questionBank,
+                       ResultLogger resultLogger,
+                       CLIView view,
+                       InputHandler input) {
+        this.student = student;
+        this.questionBank = questionBank;
+        this.resultLogger = resultLogger;
+        this.view = view;
+        this.input = input;
+        this.tugOfWar = new TugOfWarField();
+    }
+
+    public void play() {
+        // Pilih mode: Grammar atau Vocab
+        int choice = input.readInt("Pilih mode: 1) Grammar  2) Vocabulary : ");
+        if (choice == 1) {
+            mode = QuizMode.GRAMMAR;
+        } else {
+            mode = QuizMode.VOCAB;
+        }
+
+        List<Question> questions = questionBank.getRandomQuestionsByMode(mode, 10);
+
+        correctCount = 0;
+        wrongCount = 0;
+
+        for (int i = 0; i < questions.size(); i++) {
+            Question q = questions.get(i);
+            view.showQuestion(i + 1, q);
+
+            char answer = input.readAnswerOption("Jawaban (A/B/C/D): ");
+            boolean correct = q.checkAnswer(answer);
+
+            if (correct) {
+                correctCount++;
+                tugOfWar.onCorrectAnswer();
+                view.showMessage("Jawaban benar.");
+            } else {
+                wrongCount++;
+                tugOfWar.onWrongAnswer();
+                view.showMessage("Jawaban salah.");
+            }
+
+            view.showTugOfWar(tugOfWar.renderField());
+        }
+
+        int score = correctCount * 10;
+        String status;
+        if (tugOfWar.getPosition() > 0) {
+            status = "WIN";
+        } else if (tugOfWar.getPosition() < 0) {
+            status = "LOSE";
+        } else {
+            status = "DRAW";
+        }
+
+        GameResult result = new GameResult(
+                student.getUsername(),
+                mode,
+                score,
+                status,
+                LocalDateTime.now()
+        );
+
+        view.showGameResult(result);
+        resultLogger.saveResult(result);
+    }
+}
