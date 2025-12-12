@@ -6,5 +6,4 @@ public class Admin extends User {
         super(username);
     }
 
-    // Method/atribut khusus admin bisa ditambahkan di sini
 }

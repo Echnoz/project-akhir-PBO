@@ -15,13 +15,13 @@ public class CLIView {
 
     public void showWelcome() {
         System.out.println("====================================");
-        System.out.println("   SISTEM GAMIFIKASI TARIK TAMBANG  ");
-        System.out.println("   EVALUASI ADVANCED ENGLISH        ");
+        System.out.println("   GAME KUIS TARIK TAMBANG  ");
+        System.out.println("   MATERI ADVANCED ENGLISH        ");
         System.out.println("====================================");
     }
 
     public void showGoodbye() {
-        System.out.println("Terima kasih telah menggunakan sistem.");
+        System.out.println("Terima kasih, sampai jumpa lagi!");
     }
 
     public void showMessage(String message) {

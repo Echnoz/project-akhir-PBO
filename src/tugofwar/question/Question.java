@@ -7,7 +7,7 @@ public abstract class Question {
     protected String optionB;
     protected String optionC;
     protected String optionD;
-    protected char correctOption; // 'A', 'B', 'C', 'D'
+    protected char correctOption; // a, b ,c ,d
 
     protected QuizMode mode; // GRAMMAR atau VOCAB
 

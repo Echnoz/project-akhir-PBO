@@ -41,7 +41,7 @@ public class GameSession {
     }
 
     public void play() {
-        // Pilih mode: Grammar atau Vocab
+        // Pilih mode Grammar/Vocab
         int choice = input.readInt("Pilih mode: 1) Grammar  2) Vocabulary : ");
         if (choice == 1) {
             mode = QuizMode.GRAMMAR;
@@ -79,11 +79,11 @@ public class GameSession {
         int pos = tugOfWar.getPosition();
 
         if (pos < 0) {
-            status = "WIN";   // Tali condong ke PLAYER
+            status = "WIN";   
         } else if (pos > 0) {
-            status = "LOSE";  // Tali condong ke AI
+            status = "LOSE";  
         } else {
-            status = "DRAW";  // Pas di tengah
+            status = "DRAW";  //Pos=0
         }
 
         GameResult result = new GameResult(

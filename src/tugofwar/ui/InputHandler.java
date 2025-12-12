@@ -14,7 +14,7 @@ public class InputHandler {
                 int value = Integer.parseInt(scanner.nextLine().trim());
                 return value;
             } catch (NumberFormatException e) {
-                System.out.println("Masukan harus berupa angka.");
+                System.out.println("Input harus berupa angka.");
             }
         }
     }
@@ -34,7 +34,7 @@ public class InputHandler {
                     return c;
                 }
             }
-            System.out.println("Masukkan hanya A, B, C, atau D.");
+            System.out.println("Input hanya A, B, C, atau D.");
         }
     }
 }

@@ -28,7 +28,7 @@ public class GameEngine {
     }
 
     public void start() {
-        // TODO: load questions from file
+        //mengambil pertanyaan dari file
         questionBank.loadQuestionsFromFile();
 
         boolean running = true;
@@ -56,7 +56,6 @@ public class GameEngine {
         String username = input.readLine("Masukkan username admin: ");
         String password = input.readLine("Masukkan password admin: ");
 
-        // TODO: ganti dengan validasi sederhana (hard-coded) jika perlu
         if ("admin".equals(username) && "admin123".equals(password)) {
             Admin admin = new Admin(username);
             runAdminMenu(admin);
@@ -101,7 +100,7 @@ public class GameEngine {
             int choice = input.readInt("Pilih menu: ");
             switch (choice) {
                 case 1:
-                    // Mulai permainan
+                    // Mulai game
                     GameSession session = new GameSession(student, questionBank, resultLogger, view, input);
                     session.play();
                     break;

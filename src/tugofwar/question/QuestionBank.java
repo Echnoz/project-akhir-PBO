@@ -28,7 +28,6 @@ public class QuestionBank {
         try (BufferedReader br = new BufferedReader(new FileReader(questionFilePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                // Format: type;question;optA;optB;optC;optD;correctOption
                 if (line.trim().isEmpty()) continue;
                 String[] parts = line.split(";");
                 if (parts.length < 7) continue;
@@ -84,7 +83,6 @@ public class QuestionBank {
             view.showMessage("Gagal menyimpan soal: " + e.getMessage());
         }
 
-        // Refresh in-memory list
         loadQuestionsFromFile();
     }
 }

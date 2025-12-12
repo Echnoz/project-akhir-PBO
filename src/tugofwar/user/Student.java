@@ -6,6 +6,5 @@ public class Student extends User {
         super(username);
     }
 
-    // Tambahan atribut khusus siswa bisa diletakkan di sini jika perlu
 }
 

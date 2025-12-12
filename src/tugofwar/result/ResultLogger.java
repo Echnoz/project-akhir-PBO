@@ -37,7 +37,7 @@ public class ResultLogger {
                 }
             }
         } catch (IOException e) {
-            // Jika file belum ada, tidak apa-apa
+            // kalau file belum ada gapapa
         }
         return results;
     }
