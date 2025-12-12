@@ -1,4 +1,10 @@
-Yang dipake "branch3"
+Kalau tidak bisa di-run langsung, lakukan langkah berikut:
 
-!!!PENTING!!!
-KALAU MAU EDIT BIKIN BRANCH BARU
+Cara 1:
+- run di terminal dengan command berikut: java -cp out tugofwar.Main
+
+atau
+
+cara 2:
+- compile di terminal dengan command berikut: javac -d out $(Get-ChildItem -Recurse -Filter *.java | %{$_.FullName})
+- lalu run di terminal dengan command berikut: java -cp out tugofwar.Main
